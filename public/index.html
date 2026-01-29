@@ -6,37 +6,50 @@
     <title>&lt;3</title>
     <link rel="preload" href="css/fonts/rainyhearts.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="css/fonts/EmojiFont.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="/css/font-face.css" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/css/about.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div id="container"> 
-      <div id="header">
+
+    <main>
+      <header>
         <div id="construction">
           <h1>* UNDER CONSTRUCTION *</h1>
         </div>
-      </div>
-    
-      <div id="nav"> 
-        <h2>Internal</h2>
-        <a href="/">Home</a>
-        <h2>External</h2>
-        <a href="https://www.wmpg.org/show/sun2300/">Radio</a>
-        <a href="https://github.com/cae-lim" target="_blank">Github</a>
-        <a href="https://www.tumblr.com/blog/ammonia-screw-666" target="_blank">Tumblr</a>
-      </div>
-        
-      <div id="page">
-      </div>
-    </div>
-    
-    <div id="hud">
-      <div id="hud-bar">
-        <span id="on-air-sign">
-          On Air
+      </header>
+
+      <section id="page" class="shadow">
+      </section>
+
+        <nav class="shadow">
+          <h2>Internal</h2>
+          <a href="/">Home</a>
+
+          <h2>External</h2>
+          <a href="https://www.wmpg.org/show/sun2300/">Radio</a>
+          <a href="https://github.com/cae-lim" target="_blank">Github</a>
+          <a href="https://www.tumblr.com/blog/ammonia-screw-666" target="_blank">Tumblr</a>
+
+        </nav>
+    </main>
+
+
+    <aside id="hud">
+      <section id="hud-bar" class="shadow">
+        <a href="https://neocities.org/site/less-than-three" class="no-style" target="_blank" id="neocities-logo">
+          <img src="/img/neocities.png" alt="This site is hosted by neocities" >
+        </a>
+
+        <span id="on-air-sign" class="on">
+          <span id="on-air-not"></span>
+          <a class="no-style" id="on-air-link" href="https://www.wmpg.org/show/sun2300/" target="_blank">
+            <span id="on-air-light">
+              On Air
+            </span>
+          </a>
         </span>
-      </div>
-    </div>
+      </section>
+    </aside>
    
     <script src="/js/nav.js"></script>
     <script src="/js/hud.js"></script>
