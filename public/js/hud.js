@@ -1,6 +1,9 @@
 const sign = document.getElementById("on-air-sign");
 const notText = document.getElementById("on-air-not");
 const link = document.getElementById("on-air-link");
+const light = document.getElementById("on-air-light")
+const tooltipText = document.querySelector("#on-air-tooltip .tooltip-content");
+const tooltip = document.getElementById("on-air-tooltip");
 
 // stolen <3
 // @ts-ignore
@@ -32,14 +35,21 @@ function checkTime() {
   ) {
     notText.innerText = "";
     sign.classList.add("on");
-    link.classList.remove("disabled")
+    tooltipText.innerHTML = "<span class='emoji'>s</span> Listen Live! <span class='emoji'>s</span>"
   } else {
     notText.innerText = "(not)";
     sign.classList.remove("on")
-    link.classList.add("disabled")
+    tooltipText.innerHTML = "<span class='emoji'>t</span> Download My Archives! <span class='emoji'>t</span>"
   }
 
   setTimeout(checkTime, 60000);
 }
 
 checkTime();
+
+createTooltip(light, tooltip)
+
+const neocitiesImage = document.querySelector("#neocities-logo img");
+const neocitiesTooltip = document.getElementById("neocities-tooltip");
+
+createTooltip(neocitiesImage, neocitiesTooltip)

@@ -1,13 +1,13 @@
 :root {
-  --bg: #f7f2da;
+  --bg: #c7edc2;
   --fg: #2e2d2a;
   --shadow: #2e2d2add;
-  --accent-bg: #517a4c;
+  --accent-bg: #6b9466;
   --accent-fg: #f2f1e9;
   --accent-pink: #f5b0e1;
   --pink: #f777d2;
 
-  --secondary-bg: #fffbe0;
+  --secondary-bg: #f7f7e9;
 }
 
 /*.your-style {*/
@@ -29,6 +29,7 @@ html {
   color: var(--fg);
   background-color: var(--bg);
   height: 100%;
+  cursor: url("../img/Cursor.png") 20 17, auto;
 }
 
 body {
@@ -46,7 +47,8 @@ a:visited {
 }
 
 a:hover {
-  color: var(--accent-pink)
+  color: var(--accent-pink);
+  cursor: url("../img/pointer.png"), auto;
 }
 
 a:visited:hover {
@@ -69,127 +71,78 @@ a.disabled {
   border-bottom: 5px dotted var(--accent-bg)
 }
 
-main {
-  height: 100%;
-  width: 100%;
-  
-  display: grid;
-  grid-template-areas: 
-    "header header"
-    "nav page"
-    ". ."
-  ;
-
-  grid-template-columns: min-content 2fr;
-  grid-template-rows: min-content 1fr 0.25fr;
+.hover-move {
+  transform: translate(0, 0);
+  transition: transform 0.05s;
 }
 
-header {
-  grid-area: header;
-  height: min-content;
-  padding: 30px;
+.hover-move:hover {
+  transform: translate(3px, 3px);
 }
 
-header #construction {
-  display: flex;
-  justify-content: center;
-}
-
-nav {
-  position: sticky;
-  top: 15vh;
-
-  background-color: var(--secondary-bg);
-  
-  min-width: 125px;
-  height: max-content;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-
-  padding: 40px 10px;
-  margin: 35px;
-
-  grid-area: nav;
-}
-
-nav a {
-  font-size: 1.5rem;
-  font-weight: semi-bold;
-}
-
-nav h2 {
-  font-weight: bold;
-  font-size: 1.75rem;
-  border-bottom: 5px dotted var(--accent-bg);
-}
-
-nav a.active {
-  text-decoration: underline;
-}
-
-nav a:hover::before {
+.emoji {
   font-family: EmojiFont;
-  content: "B";
 }
 
-#page {
-  grid-area: page;
-  margin-left: 20px;
-  margin-right: 60px;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  height: 100%;
-  max-width: 75vw;
-  background-color: var(--secondary-bg)
+.small-text {
+  font-size: 1rem;
 }
 
-#hud {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-#hud-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.25rem;
-  min-width: 80vw;
-  background-color: var(--secondary-bg);
-  padding: 25px;
-  margin: 20px;
-}
-
-#hud-bar #neocities-logo img{
-  height: 30px;
-  margin-bottom: -10px;
-}
-
-#hud #on-air-sign {
-  font-weight: normal;
-  font-size: 1.5rem;
-  margin-left: auto;
-}
-
-#hud #on-air-sign.on #on-air-light{
+.bold {
   font-weight: bold;
-  text-shadow: var(--accent-fg) 0 0 12px;
 }
 
-#hud #on-air-sign #on-air-light {
-  padding: 10px;
+.tooltip {
   background-color: var(--accent-bg);
   color: var(--accent-fg);
-  border-radius: 3px;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
 }
 
-#hud #on-air-sign #on-air-not {
-  font-size: 1.25rem;
+.tooltip[data-show] {
+  opacity: 1;
+  width: fit-content;
+  height: auto;
+}
+
+.arrow, .arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+.arrow {
+  visibility: hidden;
+}
+
+.arrow::before {
+  visibility: visible;
+  content: '';
+  transform: rotate(45deg);
+}
+
+
+.tooltip[data-popper-placement^='top'] > .arrow {
+  bottom: -4px;
+}
+
+.tooltip[data-popper-placement^='bottom'] > .arrow {
+  top: -4px;
+}
+
+.tooltip[data-popper-placement^='left'] > .arrow {
+  right: -4px;
+}
+
+.tooltip[data-popper-placement^='right'] > .arrow {
+  left: -4px;
+}
+
+.flip {
+  display: inline-block;
+  transform: scale(-1, 1);
 }
