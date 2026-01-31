@@ -24,7 +24,7 @@
         <section id="bio" class="underline">
           <h2 class="text-center">Hi all! &lt;3</h2>
           <p class="text-indent">My name is Caelin, I'm a computer science student at the University of Southern Maine,
-          a DJ at my local college radio station WMPG (in a cool transexual way, my artist name is less-than-three), and a hobbyist muscician and tech nerd.
+          a DJ at my local college radio station WMPG (in a cool transexual way, my artist name is less-than-three), a hobbyist muscician and tech nerd.
           I've been dicking around with HTMl and CSS since I was a kid, and when a bunch of my friends kept saying 
           "man I wish I knew enough html to make a neocities site" I decided to check it out and make something to show off
           (and get familiar enough with the site to teach them).</p>
@@ -55,23 +55,58 @@
 
       <nav id="nav">
         <div id="nav-bounding">
-          <div class="shadow hover-move">
+          <div class="shadow hover-move" id="site-links">
             <h2><span class="emoji">R</span>Internal<span class="emoji">Q</span></h2>
             <a href="/">Home</a>
           </div>
 
           <div class="shadow hover-move">
             <h2><span class="emoji flip">Q</span>External<span class="emoji flip">R</span></h2>
-            <a href="https://www.wmpg.org/show/sun2300/" target="_blank">Radio</a>
-            <a href="https://github.com/cae-lim" target="_blank">Github</a>
-            <a href="https://www.tumblr.com/blog/ammonia-screw-666" target="_blank">Tumblr</a>
+            <a href="https://www.wmpg.org/show/sun2300/" target="_blank" aria-describedby="nav-radio-tooltip" id="nav-radio">Radio</a>
+            <a href="https://github.com/cae-lim" target="_blank" id="nav-github" aria-describedby="nav-github-tooltip">Github</a>
+            <a href="https://www.tumblr.com/blog/ammonia-screw-666" target="_blank" id="nav-tumblr" aria-describedby="nav-tumblr-tooltip">Tumblr</a>
+
           </div>
 
           <div class="shadow hover-move">
             <h2><span class="emoji flip hat">z</span>Featured<span class="emoji hat">z</span></h2>
-            <a href="https://sdaw.neocities.org" target="_blank">SDaw</a>
-            <a href="https://strudel.cc" target="_blank">Strudel</a>
-            <a href="https://www.dafont.com/emoji.font" target="_blank">Emojis</a>
+            <a href="https://www.reaper.fm/" target="_blank" id="nav-reaper" aria-describedby="nav-reaper-tooltip">Reaper</a>
+            <a href="https://sdaw.neocities.org" target="_blank" id="nav-sdaw" aria-describedby="nav-sdaw-tooltip">SDaw</a>
+            <a href="https://strudel.cc" target="_blank" id="nav-strudel" aria-describedby="nav-strudel-tooltip">Strudel</a>
+            <a href="https://www.dafont.com/emoji.font" target="_blank" id="nav-emojis" aria-describedby="nav-emojis-tooltip">Emojis</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="tooltip" id="nav-radio-tooltip">
+            <div class="tooltip-content">View my archives, hit [Listen Now] to listen live!</div>
+            <div class="arrow" data-popper-arrow></div>
+          </div>
+          <div class="tooltip" id="nav-github-tooltip">
+            <div class="tooltip-content">Check out all my abandoned projects! (and the code for this site)</div>
+            <div class="arrow" data-popper-arrow></div>
+          </div>
+          <div class="tooltip" id="nav-tumblr-tooltip">
+            <div class="tooltip-content">Follow me on tumblr!</div>
+            <div class="arrow" data-popper-arrow></div>
+          </div>
+          <div class="tooltip" id="nav-sdaw-tooltip">
+            <div id="tooltip-content">Awesome music creation tool hosted on neocities!</div>
+            <div class="arrow" data-popper-arrow></div>
+          </div>
+          <div class="tooltip" id="nav-strudel-tooltip">
+            <div class="tooltip-content">
+              Music live coding platform, just try it.
+            </div>
+            <div class="arrow" data-popper-arrow></div>
+          </div>
+          <div class="tooltip" id="nav-emojis-tooltip">
+            <div class="tooltip-content">The emoji font I use on this site <span class="emoji">m</span></div>
+            <div class="arrow" data-popper-arrow></div>
+          </div>
+          <div class="tooltip" id="nav-reaper-tooltip">
+            <div class="tooltip-content">My DAW of choice <span class="emoji">k</span></div>
+            <div class="arrow" data-popper-arrow></div>
           </div>
         </div>
       </nav>
@@ -103,10 +138,10 @@
       </aside>
     </main>
 
-    <script src="/js/nav.js"></script>
     <script src="/js/messages.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="/js/tooltips.js"></script>
     <script src="/js/hud.js"></script>
+    <script src="/js/nav.js"></script>
   </body>
 </html>

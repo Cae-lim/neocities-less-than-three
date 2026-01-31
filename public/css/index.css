@@ -56,9 +56,10 @@ nav h2 {
   margin-bottom: 4px;
 }
 
-nav a.active {
-  text-decoration: underline;
+nav a.active:before {
+  content: ">|";
 }
+
 
 nav a:hover::before {
   font-family: EmojiFont;
