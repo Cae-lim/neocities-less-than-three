@@ -81,7 +81,7 @@ a.disabled {
 }
 
 .hover-move:hover {
-  transform: translate(3px, 3px);
+  transform: translate(4px, 4px);
 }
 
 .emoji {
