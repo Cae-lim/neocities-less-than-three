@@ -23,6 +23,8 @@
   padding: 0;
   border: 0;
   outline: 0;
+  scrollbar-color: var(--accent-bg) var(--accent-fg);
+  scrollbar-width: auto;
 }
 
 html {
@@ -30,11 +32,13 @@ html {
   background-color: var(--bg);
   height: 100%;
   cursor: url("../img/Cursor.png") 20 17, auto;
+  max-width: 100vw;
 }
 
 body {
   font-family: 'rainyhearts' ;
   height: 100%;
+  max-width: 100vw;
 }
 
 a {
@@ -145,4 +149,21 @@ a.disabled {
 .flip {
   display: inline-block;
   transform: scale(-1, 1);
+}
+
+.hat {
+  display: inline-block;
+  transform: translateY(-8px);
+}
+
+.hat.flip {
+  transform: translateY(-8px) scale(-1, 1);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-indent {
+  text-indent: 1.5rem;
 }
