@@ -11,13 +11,9 @@ main {
     "footer footer footer"
   ;
 
-  grid-template-columns: 0.25fr 1fr 0.25fr;
-  grid-template-rows: 15vh 70vh 15vh;
+  grid-template-columns: min-content 1fr 0.15fr;
+  grid-template-rows: min-content 1fr min-content;
   overflow: hidden;
-}
-
-main > * {
-  padding: 20px;
 }
 
 header {
@@ -28,8 +24,8 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
 
+  padding: 10px;
 }
 
 header #header-message {
@@ -106,14 +102,14 @@ nav > #nav-bounding {
 #page {
   grid-area: page;
 
-  min-height: 60vh;
-  height: min-content;
-  max-height: 90%;
+  height: ;
   width: 100%;
 
   overflow: scroll;
 
   background-color: var(--secondary-bg);
+
+  padding: 20px;
 }
 
 #page h2 {
@@ -126,12 +122,20 @@ nav > #nav-bounding {
   margin-bottom: 10px;
 }
 
+#page section {
+  margin-bottom: 20px;
+}
+
 #hud {
   grid-area: footer;
+
+  position: relative;
+  bottom: 0px;
 
   width: 100%;
   display: flex;
   justify-content: center;
+  padding: 25px;
 }
 
 #hud-bar {
@@ -150,8 +154,69 @@ nav > #nav-bounding {
 }
 
 #hud-bar #neocities-logo img{
-  height: 30px;
-  margin-bottom: -10px;
+  height: 40px;
+  margin-bottom: -6px;
+}
+
+#player {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+}
+
+#transport {
+  height: fit-content;
+  background-color: var(--accent-bg);
+  padding: 6px;
+  border-radius: 3px;
+  font-size: 1rem;
+
+  display: flex;
+
+  gap: 10px;
+
+}
+#transport img {
+  width: 100%;
+  height: 24px;
+  transform: translateY(2px);
+  cursor: url('../img/pointer.png'), auto;
+}
+
+#play-button .play-state {
+  display: none;
+  margin-bottom: 4px;
+}
+
+#play-button.paused .play-state {
+  display: block;
+}
+
+#play-button.paused .pause-state {
+  display: none;
+}
+
+#random-button .on-state { 
+  display: none;
+}
+
+#random-button.on .on-state {
+  display: block;
+}
+
+#random-button.on .off-state {
+  display: none
+}
+
+#waveform {
+  flex-grow: 1;
+  max-height: 80px;
+}
+
+#waveform ::part(cursor) {
+  display: none;
 }
 
 #hud #on-air-sign {
@@ -205,9 +270,6 @@ nav > #nav-bounding {
     font-size: 1rem;
   }
 
-  #page {
-    max-height: 75%;
-  }
 }
 
 @media (max-height: 600px) {

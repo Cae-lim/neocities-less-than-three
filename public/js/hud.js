@@ -27,11 +27,13 @@ function checkTime() {
   const rightTimeSunday = today.getHours() === 23;
   const rightTimeMonday = today.getHours() <= 1;
 
-  if (rightWeek &&
-    (
-      (isSunday && rightTimeSunday) ||
-      (isMonday && rightTimeMonday)
-    )
+  console.log(rightTimeMonday);
+  console.log(isMonday)
+  console.log(rightWeek);
+
+  if (
+    (rightWeek && isSunday && rightTimeSunday) ||
+    (!rightWeek && isMonday && rightTimeMonday)
   ) {
     notText.innerText = "";
     sign.classList.add("on");

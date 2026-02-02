@@ -73,6 +73,7 @@
             <a href="https://sdaw.neocities.org" target="_blank" id="nav-sdaw" aria-describedby="nav-sdaw-tooltip">SDaw</a>
             <a href="https://strudel.cc" target="_blank" id="nav-strudel" aria-describedby="nav-strudel-tooltip">Strudel</a>
             <a href="https://www.dafont.com/emoji.font" target="_blank" id="nav-emojis" aria-describedby="nav-emojis-tooltip">Emojis</a>
+            <a href="https://www.piskelapp.com/p/create/sprite/" target="_blank" id="nav-piskel" aria-describedby="nav-piskel-tooltip">Piskel</a>
           </div>
         </div>
 
@@ -121,6 +122,37 @@
             </a>
           </section>
 
+          <section id="player">
+            <div id="transport">
+              <span id="play-button" class="paused" disabled aria-describedby="play-button-tooltip">
+                <img src="/img/transport/play.png" class="play-state"/>
+                <img src="/img/transport/pause.png" class="pause-state"/>
+              </span>
+              <span id="random-button" class="off" aria-describedby="random-button-tooltip">
+                <img src="/img/transport/random-on.png" class="on-state"/>
+                <img src="/img/transport/random-off.png" class="off-state"/>
+              </span>
+
+              <div class="tooltip" id="play-button-tooltip">
+                <div class="tooltip-content">
+                </div>
+                <div class="arrow" data-popper-arrow>
+                </div>
+              </div>
+              <div class="tooltip" id="random-button-tooltip">
+                <div class="tooltip-content">
+                </div>
+                <div class="arrow" data-popper-arrow>
+                </div>
+              </div>
+            </div>
+            <div id="waveform" aria-describedby="waveform-tooltip"></div>
+            <div class="tooltip" id="waveform-tooltip">
+              <div class="tooltip-content"></div>
+              <div class="arrow" data-popper-arrow></div>
+            </div>
+          </section>
+
           <section id="on-air-sign" class="on">
             <span id="on-air-not"></span>
             <a class="no-style" id="on-air-link" href="https://www.wmpg.org/show/sun2300/" target="_blank">
@@ -142,5 +174,8 @@
     <script src="/js/tooltips.js"></script>
     <script src="/js/hud.js"></script>
     <script src="/js/nav.js"></script>
+
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
+    <script src="/js/transport.js"></script>
   </body>
 </html>
