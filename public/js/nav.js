@@ -12,6 +12,8 @@ const github = document.getElementById("nav-github");
 const githubTooltip = document.getElementById("nav-github-tooltip")
 const tumblr = document.getElementById("nav-tumblr");
 const tumblrTooltip = document.getElementById("nav-tumblr-tooltip")
+const openPGP = document.getElementById("nav-openpgp");
+const openPGPTooltip = document.getElementById("nav-openpgp-tooltip")
 const reaper = document.getElementById("nav-reaper")
 const reaperTooltip = document.getElementById("nav-reaper-tooltip")
 const sdaw = document.getElementById("nav-sdaw")
@@ -24,6 +26,7 @@ const emojisTooltip = document.getElementById("nav-emojis-tooltip")
 createTooltip(radio, radioTooltip, "right");
 createTooltip(github, githubTooltip, "right");
 createTooltip(tumblr, tumblrTooltip, "right");
+createTooltip(openPGP, openPGPTooltip, "right")
 createTooltip(sdaw, sdawTooltip, "right");
 createTooltip(strudel, strudelTooltip, "right");
 createTooltip(emojis, emojisTooltip, "right");
