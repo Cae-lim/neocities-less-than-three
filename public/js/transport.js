@@ -15,7 +15,6 @@ function randomSong() {
 }
 
 let currentSong = randomSong();
-console.log(currentSong)
 
 const wavesurfer = WaveSurfer.create({
   container: '#waveform',
@@ -32,28 +31,12 @@ const wavesurfer = WaveSurfer.create({
 
 createTooltip(waveform, waveformTooltip);
 
-playPause.addEventListener('click', (e) => {
-  e.preventDefault();
-
+document.addEventListener("play-toggle", () => {
   wavesurfer.playPause();
-});
-
-wavesurfer.on("play", () => {
-  playPause.classList.remove("paused");
-
-});
-
-wavesurfer.on("pause", () => {
-  playPause.classList.add("paused");
-});
-
-randomButton.addEventListener('click', (e) => {
-  randomButton.classList.toggle('on')
 })
 
 wavesurfer.on('load', () => {
   playPause.setAttribute('disabled', true)
-  playPause.classList.add("paused")
   waveformTooltipContent.innerText = `Loading "${currentSong.name}"`
 })
 

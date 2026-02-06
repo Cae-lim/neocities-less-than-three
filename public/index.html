@@ -12,9 +12,9 @@
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/css/nav.css" rel="stylesheet" type="text/css">
     <link href="/css/hud.css" rel="stylesheet" type="text/css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body>
-
     <main>
       <header>
           <section id="header-message">
@@ -129,13 +129,21 @@
             </a>
           </section>
 
-          <section id="player">
+          <section id="player" x-data="{ play: false, random: false}">
             <div id="transport">
-              <span id="play-button" class="paused" disabled aria-describedby="play-button-tooltip">
+              <span id="play-button" 
+                x-bind:class="! play ? 'paused' : ''"
+                x-on:click="play = ! play; $dispatch('play-toggle')"
+                disabled aria-describedby="play-button-tooltip"
+              >
                 <img src="/img/transport/play.png" class="play-state"/>
                 <img src="/img/transport/pause.png" class="pause-state"/>
               </span>
-              <span id="random-button" class="off" aria-describedby="random-button-tooltip">
+              <span id="random-button" 
+                x-bind:class="random ? 'on' : ''"
+                x-on:click="random = !random"
+                aria-describedby="random-button-tooltip"
+              >
                 <img src="/img/transport/random-on.png" class="on-state"/>
                 <img src="/img/transport/random-off.png" class="off-state"/>
               </span>
@@ -161,13 +169,16 @@
           </section>
         </section>
       </aside>
+      <!-- <aside> -->
+      <!--   <heads-up-display></heads-up-display> -->
+      <!-- </aside> -->
     </main>
 
     <script src="/js/messages.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="/js/tooltips.js"></script>
-    <script src="/js/hud.js"></script>
     <script src="/js/nav.js"></script>
+    <script src="/js/hud.js"></script>
 
     <script src="https://unpkg.com/wavesurfer.js@7"></script>
     <script src="/js/transport.js"></script>

@@ -1,3 +1,13 @@
+class Hud extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' })
+    this.shadowRoot.innerHTML = "";
+  }
+}
+
+customElements.define('heads-up-display', Hud);
+
 const sign = document.getElementById("on-air-sign");
 const notText = document.getElementById("on-air-not");
 const link = document.getElementById("on-air-link");
@@ -26,10 +36,6 @@ function checkTime() {
   const rightWeek = today.getWeek() % 2 !== 0;
   const rightTimeSunday = today.getHours() === 23;
   const rightTimeMonday = today.getHours() <= 1;
-
-  console.log(rightTimeMonday);
-  console.log(isMonday)
-  console.log(rightWeek);
 
   if (
     (rightWeek && isSunday && rightTimeSunday) ||
