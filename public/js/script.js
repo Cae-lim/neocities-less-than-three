@@ -7,6 +7,7 @@ window.addEventListener("load", function() {
 
   if (loadedDocument && loadedSong) {
     loader.style.opacity = 0;
+    loader.style.pointerEvents = "none";
   }
 });
 
@@ -15,5 +16,6 @@ window.addEventListener("song-load", function() {
 
   if (loadedDocument && loadedSong) {
     loader.style.opacity = 0;
+    loader.style.pointerEvents = "none";
   }
 });
