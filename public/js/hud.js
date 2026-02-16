@@ -340,6 +340,11 @@ class MediaPlayer extends HTMLElement {
     });
 
     this.wavesurfer.on('ready', () => {
+      this.dispatchEvent(new CustomEvent('song-load', {
+        bubbles: true,
+        composed: true,
+      }));
+
       this.playButton.removeAttribute('disabled');
       this.tooltip.innerHTML = `Playing "${this.currentSong.name}"<div class="arrow" data-popper-arrow></div>`;
 
