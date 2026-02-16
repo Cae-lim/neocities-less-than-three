@@ -20,7 +20,7 @@ class SideNav extends HTMLElement {
       
         <div class="shadow hover-move">
           <h2><span class="emoji flip">Q</span>External<span class="emoji flip">R</span></h2>
-          <a href="https://less-than-three.atabook.org" target="_blank" aria-describedby="nav-atabook-tooltip" id="nav-atabook">Guestbook</a>
+          <a href="https://less-than-three.atabook.org" aria-describedby="nav-atabook-tooltip" id="nav-atabook">Guestbook</a>
           <a href="https://www.wmpg.org/show/sun2300/" target="_blank" aria-describedby="nav-radio-tooltip" id="nav-radio">Radio</a>
           <a href="https://github.com/cae-lim" target="_blank" id="nav-github" aria-describedby="nav-github-tooltip">Github</a>
           <a href="https://www.tumblr.com/blog/ammonia-screw-666" target="_blank" id="nav-tumblr" aria-describedby="nav-tumblr-tooltip">Tumblr</a>
