@@ -47,7 +47,7 @@ function createTooltip(target, tooltip, position = "top") {
 
   showEvents.forEach((event) => {
     target.addEventListener(event, show);
-  });
+  }); https://webcomponents.guide/learn/components/slots/
 
   hideEvents.forEach((event) => {
     target.addEventListener(event, hide);
@@ -55,3 +55,24 @@ function createTooltip(target, tooltip, position = "top") {
 
   return popperInstance;
 }
+
+class MyTooltip extends HTMLElement {
+  connectedCallback() {
+    // Add the tooltip class directly to this element
+    this.classList.add('tooltip');
+
+    // Create and append arrow
+    const arrow = document.createElement("div");
+    arrow.dataset.popperArrow = "";
+    arrow.classList.add("arrow");
+    this.appendChild(arrow);
+
+    const element = document.querySelector(this.dataset.for);
+    if (element == null) {
+      return;
+    }
+    createTooltip(element, this, this.dataset.position);
+  }
+}
+
+customElements.define("my-tooltip", MyTooltip);

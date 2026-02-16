@@ -1,32 +1,32 @@
-nav {
+#nav {
   grid-area: nav;
   display: flex;
   justify-content: center;
   padding: 0px 40px;
 }
 
-nav a {
+#nav a {
   font-size: 1.25rem;
   font-weight: 600;
 }
 
-nav h2 {
+#nav h2 {
   font-weight: bold;
   font-size: 1.5rem;
   border-bottom: 5px dotted var(--accent-bg);
   margin-bottom: 4px;
 }
 
-nav a.active:before {
+#nav a.active:before {
   content: ">|";
 }
 
-nav a:hover::before {
+#nav a:hover::before {
   font-family: EmojiFont;
   content: "B";
 }
 
-nav > #nav-bounding {
+#nav > #nav-bounding {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,11 +62,11 @@ nav > #nav-bounding {
     padding: 12px 3px;
   }
 
-  nav h2 {
+  #nav h2 {
     font-size: 1.25rem;
   }
 
-  nav a {
+  #nav a {
     font-size: 1rem;
   }
 

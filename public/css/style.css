@@ -21,11 +21,20 @@
   scrollbar-width: auto;
 }
 
+.hover-move {
+  transform: translate(0, 0) !important;
+  transition: transform 0.05s !important;
+}
+
+.hover-move:hover {
+  transform: translate(4px, 4px) !important;
+}
+
 html {
   color: var(--fg);
   background-color: var(--bg);
   height: 100%;
-  cursor: url("../img/Cursor.png") 20 17, auto;
+  cursor: url("../img/Cursor.png") 10 10, auto;
   max-width: 100vw;
 }
 
@@ -69,14 +78,6 @@ a.disabled {
   border-bottom: 5px dotted var(--accent-bg)
 }
 
-.hover-move {
-  transform: translate(0, 0);
-  transition: transform 0.05s;
-}
-
-.hover-move:hover {
-  transform: translate(4px, 4px);
-}
 
 .emoji {
   font-family: EmojiFont;
@@ -100,6 +101,8 @@ a.disabled {
   transition: opacity 0.15s ease-in-out;
 
   z-index:99999999;
+
+  pointer-events: none;
 }
 
 .tooltip[data-show] {
@@ -125,7 +128,6 @@ a.disabled {
   content: '';
   transform: rotate(45deg);
 }
-
 
 .tooltip[data-popper-placement^='top'] > .arrow {
   bottom: -4px;
@@ -164,3 +166,4 @@ a.disabled {
 .text-indent {
   text-indent: 1.5rem;
 }
+

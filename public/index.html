@@ -11,15 +11,25 @@
     <link href="/css/layout.css" rel="stylesheet" type="text/css">
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/css/nav.css" rel="stylesheet" type="text/css">
-    <link href="/css/hud.css" rel="stylesheet" type="text/css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="/js/script.js"></script>
   </head>
   <body>
+    <noscript><h2>This site relies heavily on JavaScript, if you are seeing this you have js turned off</h1></noscript>
     <main>
       <header>
-          <section id="header-message">
+          <section>
+            <a href="https://tamanotchi.world/30178c" class="tamaNOTchi">
+              <img src="https://tamanotchi.world/i/30178" alt="It's tamaNOTchi! Click to feed!">
+            </a>
+
+            <section id="header-message">
+            </section>
+
+            <a href="https://tamanotchi.world/30178c" class="tamaNOTchi">
+              <img src="https://tamanotchi.world/i/30178" alt="It's tamaNOTchi! Click to feed!">
+            </a>
           </section>
-          <noscript><h2>This site relies heavily on JavaScript, if you are seeing this you have js turned off</h1></noscript>
       </header>
 
       <section id="page" class="shadow hover-move">
@@ -55,132 +65,43 @@
         </section>
       </section>
 
-      <nav id="nav">
-        <div id="nav-bounding">
-          <div class="shadow hover-move" id="site-links">
-            <h2><span class="emoji">R</span>Internal<span class="emoji">Q</span></h2>
-            <a href="/">Home</a>
-          </div>
-
-          <div class="shadow hover-move">
-            <h2><span class="emoji flip">Q</span>External<span class="emoji flip">R</span></h2>
-            <a href="https://www.wmpg.org/show/sun2300/" target="_blank" aria-describedby="nav-radio-tooltip" id="nav-radio">Radio</a>
-            <a href="https://github.com/cae-lim" target="_blank" id="nav-github" aria-describedby="nav-github-tooltip">Github</a>
-            <a href="https://www.tumblr.com/blog/ammonia-screw-666" target="_blank" id="nav-tumblr" aria-describedby="nav-tumblr-tooltip">Tumblr</a>
-            <a href="https://keys.openpgp.org/search?q=caelouwho%40gmail.com" target="_blank" id="nav-openpgp" aria-describedby="nav-openpgp-tooltip">PGP Key</a>
-          </div>
-
-          <div class="shadow hover-move">
-            <h2><span class="emoji flip hat">z</span>Featured<span class="emoji hat">z</span></h2>
-            <a href="https://www.reaper.fm/" target="_blank" id="nav-reaper" aria-describedby="nav-reaper-tooltip">Reaper</a>
-            <a href="https://sdaw.neocities.org" target="_blank" id="nav-sdaw" aria-describedby="nav-sdaw-tooltip">SDaw</a>
-            <a href="https://strudel.cc" target="_blank" id="nav-strudel" aria-describedby="nav-strudel-tooltip">Strudel</a>
-            <a href="https://www.dafont.com/emoji.font" target="_blank" id="nav-emojis" aria-describedby="nav-emojis-tooltip">Emojis</a>
-            <a href="https://www.piskelapp.com/p/create/sprite/" target="_blank" id="nav-piskel" aria-describedby="nav-piskel-tooltip">Piskel</a>
-          </div>
-        </div>
-
-        <div>
-          <div class="tooltip" id="nav-radio-tooltip">
-            <div class="tooltip-content">View my archives, hit [Listen Now] to listen live!</div>
-            <div class="arrow" data-popper-arrow></div>
-          </div>
-          <div class="tooltip" id="nav-github-tooltip">
-            <div class="tooltip-content">Check out all my abandoned projects! (and the code for this site)</div>
-            <div class="arrow" data-popper-arrow></div>
-          </div>
-          <div class="tooltip" id="nav-tumblr-tooltip">
-            <div class="tooltip-content">Follow me on tumblr!</div>
-            <div class="arrow" data-popper-arrow></div>
-          </div>
-          <div class="tooltip" id="nav-openpgp-tooltip">
-            <div class="tooltip-content">my Openpgp public key</div>
-            <div class="arrow" data-popper-arrow></div>
-          </div>
-          <div class="tooltip" id="nav-sdaw-tooltip">
-            <div id="tooltip-content">Awesome music creation tool hosted on neocities!</div>
-            <div class="arrow" data-popper-arrow></div>
-          </div>
-          <div class="tooltip" id="nav-strudel-tooltip">
-            <div class="tooltip-content">
-              Music live coding platform, just try it.
-            </div>
-            <div class="arrow" data-popper-arrow></div>
-          </div>
-          <div class="tooltip" id="nav-emojis-tooltip">
-            <div class="tooltip-content">The emoji font I use on this site <span class="emoji">m</span></div>
-            <div class="arrow" data-popper-arrow></div>
-          </div>
-          <div class="tooltip" id="nav-reaper-tooltip">
-            <div class="tooltip-content">My DAW of choice <span class="emoji">k</span></div>
-            <div class="arrow" data-popper-arrow></div>
-          </div>
-        </div>
-      </nav>
-      <aside id="hud">
-        <section id="hud-bar" class="shadow hover-move">
-          <section id="neocities-logo">
-            <a href="https://neocities.org/site/less-than-three" class="no-style" target="_blank">
-              <img src="/img/neocities.png" alt="This site is hosted by neocities" aria-describedby="neocities-tooltip">
-              <div class="tooltip" id="neocities-tooltip">
-                <div class="tooltip-content"><span class="emoji">M</span> Follow me on NeoCities! <span class="emoji">N</span></div>
-                <div class="arrow" data-popper-arrow></div>
-              </div>
-            </a>
-          </section>
-
-          <section id="player" x-data="{ play: false, random: false}">
-            <div id="transport">
-              <span id="play-button" 
-                x-bind:class="! play ? 'paused' : ''"
-                x-on:click="play = ! play; $dispatch('play-toggle')"
-                disabled aria-describedby="play-button-tooltip"
-              >
-                <img src="/img/transport/play.png" class="play-state"/>
-                <img src="/img/transport/pause.png" class="pause-state"/>
-              </span>
-              <span id="random-button" 
-                x-bind:class="random ? 'on' : ''"
-                x-on:click="random = !random"
-                aria-describedby="random-button-tooltip"
-              >
-                <img src="/img/transport/random-on.png" class="on-state"/>
-                <img src="/img/transport/random-off.png" class="off-state"/>
-              </span>
-            </div>
-            <div id="waveform" aria-describedby="waveform-tooltip"></div>
-            <div class="tooltip" id="waveform-tooltip">
-              <div class="tooltip-content"></div>
-              <div class="arrow" data-popper-arrow></div>
-            </div>
-          </section>
-
-          <section id="on-air-sign" class="on">
-            <span id="on-air-not"></span>
-            <a class="no-style" id="on-air-link" href="https://www.wmpg.org/show/sun2300/" target="_blank">
-              <span id="on-air-light" aria-describedby="on-air-tooltip">
-                On Air
-              </span>
-              <div class="tooltip" id="on-air-tooltip">
-                <div class="tooltip-content"><span class='emoji'>s</span> Listen Live! <span class="emoji">s</span></div>
-                <div class="arrow" data-popper-arrow></div>
-              </div>
-            </a>
-          </section>
+      <side-nav id="nav"></side-nav>
+      
+      <hud-bar id="hud">
+        <section id="neocities-logo" slot="left" >
+          <a href="https://neocities.org/site/less-than-three"
+            class="no-style"
+            target="_blank"
+          >
+            <img src="/img/neocities.png" 
+              alt="This site is hosted by neocities" 
+              aria-describedby="neocities-tooltip"
+              style="
+                height: 40px;
+                margin-bottom: -6px;
+              "
+              id="neocities-tooltip-target"
+            >
+          </a>
         </section>
-      </aside>
-      <!-- <aside> -->
-      <!--   <heads-up-display></heads-up-display> -->
-      <!-- </aside> -->
-    </main>
 
+        <media-player slot="center" data-tooltip-id="waveform-tooltip"></media-player>
+
+        <on-air-light slot="right" data-tooltip-id="on-air-tooltip"></on-air-light>
+      </hud-bar>
+
+    </main>
+    
+    <my-tooltip data-for="#neocities-tooltip-target" id="neocities-tooltip">
+      <span class="emoji">M</span> Follow me on NeoCities! <span class="emoji">N</span>
+    </my-tooltip>
+    <my-tooltip data-position="top" id="on-air-tooltip"></my-tooltip>
+    <my-tooltip data-position="top" id="waveform-tooltip"></my-tooltip>
     <script src="/js/messages.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="/js/tooltips.js"></script>
-    <script src="/js/nav.js"></script>
-    <script src="/js/hud.js"></script>
-
     <script src="https://unpkg.com/wavesurfer.js@7"></script>
-    <script src="/js/transport.js"></script>
+    <script src="/js/hud.js"></script>
+    <script src="/js/nav.js"></script>
   </body>
 </html>
