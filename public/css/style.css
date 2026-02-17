@@ -12,10 +12,19 @@
   --secondary-bg: #f7f7e9;
 }
 
+noscript {
+  position: absolute;
+  top: 0;
+  font-size: 15rem;
+  font-weight: bold;
+  z-index: 9999;
+  text-align: center;
+}
+
 #preloader {
   position: absolute;
   top: 0;
-  z-index: 9999999999999999;
+  z-index: 999;
   background-color: var(--bg);
   width: 100vw;
   height: 100vh;
@@ -117,7 +126,7 @@ a.disabled {
   opacity: 0;
   transition: opacity 0.15s ease-in-out;
 
-  z-index:99999999;
+  z-index:99;
 
   pointer-events: none;
 }
