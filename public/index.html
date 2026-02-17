@@ -6,20 +6,29 @@
     <title>&lt;3</title>
     <link rel="preload" href="css/fonts/rainyhearts.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="css/fonts/EmojiFont.woff2" as="font" type="font/woff2" crossorigin>
+
     <link href="/css/font-face.css" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href="/css/layout.css" rel="stylesheet" type="text/css">
     <link href="/css/index.css" rel="stylesheet" type="text/css">
+
     <link href="/css/nav.css" rel="stylesheet" type="text/css">
+    <link href="/css/hud.css" rel="stylesheet" type="text/css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body>
+
     <div id="preloader">
       <span>
         Loading...
       </span>
     </div>
-    <noscript><h2>This site relies heavily on JavaScript, if you are seeing this you have js turned off</h1></noscript>
+
+    <script src="/js/preloader.js"></script>
+
+    <noscript><h1>This site relies heavily on JavaScript, if you are seeing this you have js turned off</h1></noscript>
+
     <main>
       <header>
           <section>
@@ -63,8 +72,7 @@
           I'm much more of a server-side girl so I want to use this to work on my web design and CSS skills a bit.
           I do however also want to add some nice interactive bits such as hosting and playing my music, a contact page,
           and I want to try my hand at making a little JavaScript based Tracker on here. So I'll probably end up 
-          looking for some external hosting to add a bit of backend logic and host audio files 
-          (since neocities won't do it unless I pay, and even then 5gb is pretty limited for audio).
+          looking for some external hosting to add a bit of backend logic and host audio files.
           </p>
         </section>
       </section>
@@ -89,24 +97,26 @@
           </a>
         </section>
 
-        <media-player slot="center" data-tooltip-id="waveform-tooltip"></media-player>
+        <media-player slot="center" data-tooltip-id="waveform-tooltip" id="media-player"></media-player>
 
-        <on-air-light slot="right" data-tooltip-id="on-air-tooltip"></on-air-light>
+        <on-air-light slot="right" data-tooltip-id="on-air-tooltip" id="on-air"></on-air-light>
       </hud-bar>
-
     </main>
     
     <my-tooltip data-for="#neocities-tooltip-target" id="neocities-tooltip">
       <span class="emoji">M</span> Follow me on NeoCities! <span class="emoji">N</span>
     </my-tooltip>
+
     <my-tooltip data-position="top" id="on-air-tooltip"></my-tooltip>
+
     <my-tooltip data-position="top" id="waveform-tooltip"></my-tooltip>
-    <script src="/js/messages.js"></script>
+
     <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="/js/tooltips.js"></script>
     <script src="https://unpkg.com/wavesurfer.js@7"></script>
+
+    <script src="/js/header-message.js"></script>
+    <script src="/js/tooltips.js"></script>
     <script src="/js/hud.js"></script>
     <script src="/js/nav.js"></script>
-    <script src="/js/script.js"></script>
   </body>
 </html>

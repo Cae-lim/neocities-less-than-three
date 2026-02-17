@@ -1,7 +1,12 @@
+
 var loader = document.getElementById("preloader");
 let loadedDocument = false;
 let loadedSong = false
 
+if (window.location.hostname === "localhost") {
+  loader.style.opacity = 0;
+  loader.style.pointerEvents = 0;
+}
 window.addEventListener("load", function() {
   loadedDocument = true;
 
