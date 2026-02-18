@@ -1,0 +1,47 @@
+.crate {
+  max-height: 25vh;
+  max-width: 256px;
+  overflow: scroll;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  margin: 16px;
+
+  list-style: none;
+
+  border: 5px dotted var(--accent-bg)
+}
+
+.crate li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.crate li:nth-child(odd):before {
+  font-family: EmojiFont;
+  content: "s";
+}
+
+.crate li:nth-child(even):before {
+  font-family: EmojiFont;
+  content: "G";
+}
+
+.crate-carousel {
+  display: flex;
+  align-items: start;
+  overflow: scroll;
+}
+
+.crate-carousel > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.crate-carousel header {
+  margin-bottom: 0 !important;
+}

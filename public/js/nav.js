@@ -17,6 +17,7 @@ class SideNav extends HTMLElement {
           <h2><span class="emoji">R</span>Internal<span class="emoji">Q</span></h2>
           <a href="/">Home</a>
           <a href="/lab.html">Lab</a>
+          <a href="/crates.html">Crates</a>
         </div>
       
         <div class="shadow hover-move">
