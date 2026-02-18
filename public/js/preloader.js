@@ -5,7 +5,7 @@ let loadedSong = false
 
 if (window.location.hostname === "localhost") {
   loader.style.opacity = 0;
-  loader.style.pointerEvents = 0;
+  loader.style.pointerEvents = "none";
 }
 window.addEventListener("load", function() {
   loadedDocument = true;
