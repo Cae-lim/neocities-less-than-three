@@ -114,7 +114,7 @@ main {
   padding: 25px;
 }
 
-@media (max-height: 800px) {
+@media (max-height: 875px) {
   main {
     grid-template-areas: 
       "header header header"
@@ -122,5 +122,4 @@ main {
       ". footer ."
     ;
   }
-
 }
