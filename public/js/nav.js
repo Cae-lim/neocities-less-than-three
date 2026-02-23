@@ -18,6 +18,8 @@ class SideNav extends HTMLElement {
           <a href="/">Home</a>
           <a href="/lab.html">Lab</a>
           <a href="/crates.html">Crates</a>
+          <a href="/buttons.html">Buttons</a>
+          <a href="/site-map.html">Sitemap</a>
         </div>
       
         <div class="shadow hover-move">

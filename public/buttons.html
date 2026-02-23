@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;3</title>
+    <link rel="preload" href="css/fonts/rainyhearts.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="css/fonts/EmojiFont.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link href="/css/font-face.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css">
+
+    <link href="/css/nav.css" rel="stylesheet" type="text/css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body>
+
+    <div id="preloader">
+      <span>
+        Loading...
+      </span>
+    </div>
+    <script src="/js/preloader.js"></script>
+
+    <noscript><h1>This site relies heavily on JavaScript, if you are seeing this you have js turned off</h1></noscript>
+
+    <main>
+      <header id="header">
+        <h1>Checkout my button collection!</h1>
+      </header>
+
+      <section id="page" class="shadow hover-move">
+        <section class="underline">
+          <header>
+            <h2>Add my button to your page!</h2>
+            <textarea id="blinkie-textarea" aria-described-by="blinkie-textarea-tooltip">
+<a href="https://less-than-three.neocities.org" target="_blank">
+  <img 
+    src="https://less-than-three.neocities.org/img/blinkie.gif"
+    style="height: 24px"
+  />
+</a>
+            </textarea>
+            <div id="blinkie-result"></div>
+            <button id="copy-button" aria-described-by="copy-button-tooltip">Copy</button>
+            <my-tooltip data-for="#copy-button" id="copy-button-tooltip">Copy the code for my button!</my-tooltip>
+            <my-tooltip data-for="#blinkie-textarea" id="blinkie-textarea-tooltip">Customize the code for my button!</my-tooltip>
+          </header>
+        </section>
+        <section class="underline">
+          <header>
+            <h2>Badges</h2>
+          </header>
+          <div class="button-wall">
+            <img src="/img/button-wall/badges/queercoded.png">
+            <img src="/img/button-wall/badges/under-construction.gif">
+            <img src="/img/button-wall/badges/lesbian.png">
+            <img src="/img/button-wall/badges/trans.png">
+            <img src="/img/button-wall/badges/transfemme.png">
+            <img src="/img/button-wall/badges/standwithpalestine.png">
+          </div>
+        </section>
+        <section class="underline">
+          <header>
+            <h2>Cool sites!</h2>
+          </header>
+          <div class="button-wall">
+            <a href="https://avantgoblin.com" target="_blank"><img src="/img/button-wall/avantgoblin-com.png"></a>
+            <a href="https://nostalgic.neocities.org" target="_blank"><img src="/img/button-wall/nostalgic-neocities-org.gif"></a>
+            <a href="https://pocl.vip" target="_blank"><img src="/img/button-wall/pocl-vip.gif"></a>
+            <a href="https://rainy.gay" target="_blank"><img src="/img/button-wall/rainy-gay.png"></a>
+          </div>
+        </section>
+      </section>
+
+      <side-nav id="nav"></side-nav>
+
+      <section id="hud"></section>
+    </main>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="/js/tooltips.js"></script>
+    <script src="/js/nav.js"></script>
+    <script src="/js/buttons.js"></script>
+  </body>
+</html>

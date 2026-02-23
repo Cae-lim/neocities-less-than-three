@@ -64,7 +64,6 @@ main {
   }
 }
 
-
 #page {
   grid-area: page;
 
@@ -74,7 +73,7 @@ main {
 
   background-color: var(--secondary-bg);
 
-  padding: 20px;
+  padding: 32px;
   margin-right: 8px;
 }
 

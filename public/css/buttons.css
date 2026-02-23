@@ -1,0 +1,16 @@
+#page section > header {
+  gap: 8px;
+}
+
+#page section > header > h2 {
+  margin-bottom: 16px;
+}
+
+#blinkie-textarea {
+  width: 90%;
+  height: 100px;
+  background-color: var(--bg);
+  border: 4px dotted var(--accent-bg);
+  border-radius: 10px;
+  padding: 16px;
+}

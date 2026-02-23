@@ -13,6 +13,7 @@
     <link href="/css/index.css" rel="stylesheet" type="text/css">
 
     <link href="/css/nav.css" rel="stylesheet" type="text/css">
+    <link href="/css/hud.css" rel="stylesheet" type="text/css">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
@@ -67,7 +68,7 @@
           improving my live audio, and mixing skills.
           </p>
         </section>
-        <section>
+        <section class="">
           <header>
             <h2 class="text-center"><span class="emoji">a</span> Site Plans <span class="emoji">v</span></h2>
           </header>
@@ -83,7 +84,7 @@
       <side-nav id="nav"></side-nav>
       
       <hud-bar id="hud">
-        <section id="neocities-logo" slot="left" >
+        <section id="neocities-logo" class="left">
           <a href="https://neocities.org/site/less-than-three"
             class="no-style"
             target="_blank"
@@ -100,19 +101,15 @@
           </a>
         </section>
 
-        <media-player slot="center" data-tooltip-id="waveform-tooltip" id="media-player"></media-player>
+        <media-player class="center" id="media-player"></media-player>
 
-        <on-air-light slot="right" data-tooltip-id="on-air-tooltip" id="on-air"></on-air-light>
+        <on-air-light class="right" id="on-air"></on-air-light>
       </hud-bar>
     </main>
     
     <my-tooltip data-for="#neocities-tooltip-target" id="neocities-tooltip">
       <span class="emoji">M</span> Follow me on NeoCities! <span class="emoji">N</span>
     </my-tooltip>
-
-    <my-tooltip data-position="top" id="on-air-tooltip"></my-tooltip>
-
-    <my-tooltip data-position="top" id="waveform-tooltip"></my-tooltip>
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/wavesurfer.js@7"></script>

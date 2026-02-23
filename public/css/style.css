@@ -96,6 +96,32 @@ a.disabled {
   pointer-events: none;
 }
 
+button {
+  background: var(--accent-bg);
+  color: var(--accent-fg);
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: 4px 4px 1px 0px var(--shadow);
+  transition: box-shadow 0.05s;
+}
+
+button:hover {
+  cursor: url("../img/pointer.png"), auto;
+}
+
+button:active {
+  box-shadow: 2px 2px 1px 0px var(--shadow);
+  color: var(--accent-pink);
+}
+
+ul {
+  list-style-position: inside;
+}
+
+ul li > * {
+  display: inline
+}
+
 .shadow {
   box-shadow: 8px 8px 2px 0px var(--shadow);
 }
@@ -104,6 +130,15 @@ a.disabled {
   border-bottom: 5px dotted var(--accent-bg)
 }
 
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.center.col {
+  flex-direction: column;
+  justify-content: center;
+}
 
 .emoji {
   font-family: EmojiFont;

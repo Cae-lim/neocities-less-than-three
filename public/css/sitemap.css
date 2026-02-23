@@ -1,0 +1,19 @@
+#page header {
+  align-items: start;
+  padding: 8px;
+}
+
+#page > section:nth-child(odd) > header > h2:before {
+  font-family: EmojiFont;
+  content:"v ";
+}
+
+#page > section:nth-child(even) > header > h2:before {
+  font-family: EmojiFont;
+  content:"a ";
+}
+
+#page > section {
+  border-bottom: 4px dotted var(--accent-bg);
+  padding: 8px;
+}

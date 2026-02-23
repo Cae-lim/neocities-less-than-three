@@ -1,65 +1,24 @@
-const hudTemplate = document.createElement('template');
-hudTemplate.innerHTML = `
-  <style>
-    .hud-bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-      max-width: 80vw;
-      font-size: 1.25rem;
-      background-color: var(--secondary-bg);
-      padding: 0px 20px;
-    }
-    
-    .neocities-logo {
-      display: flex;
-      align-items: center;
-    }
-    
-    .neocities-logo img {
-      height: 40px;
-      margin-bottom: -6px;
-    }
-
-    .hover-move {
-      transform: translate(0, 0);
-      transition: transform 0.05s;
-    }
-    
-    .hover-move:hover {
-      transform: translate(4px, 4px);
-    }
-
-    .shadow {
-      box-shadow: 8px 8px 2px 0px var(--shadow);
-    }
-    
-    @media (max-height: 600px) {
-      .neocities-logo img {
-        height: 20px;
-        margin-bottom: -5px;
-      }
-    }
-  </style>
-
-  <section class="hud-bar shadow hover-move">
-    <slot name="left"></slot>
-    <slot name="center"></slot>
-    <slot name="right"></slot>
-  </section>
-`;
-
 class HudBar extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.appendChild(hudTemplate.content.cloneNode(true));
+    this.left = this.getElementsByClassName("left")[0];
+    this.center = this.getElementsByClassName("center")[0];
+    this.right = this.getElementsByClassName("right")[0];
   }
 
   connectedCallback() {
+    this.render()
+  }
+
+  render() {
+    this.wrapper = document.createElement("section");
+    this.wrapper.classList.add("hud-bar", "shadow", "hover-move")
+
+    this.wrapper.appendChild(this.left);
+    this.wrapper.appendChild(this.center);
+    this.wrapper.appendChild(this.right);
+
+    this.appendChild(this.wrapper)
   }
 }
 
@@ -76,82 +35,37 @@ if (!Date.prototype.getWeek) {
 }
 
 const onAirLightTemplate = document.createElement('template');
-onAirLightTemplate.innerHTML = `
-  <style>
-    :host {
-      font-weight: normal;
-      font-size: 1.5rem;
-      margin-left: auto;
-      display: block;
-    }
-    
-    :host(.on) .on-air-light {
-      font-weight: bold;
-      text-shadow: var(--accent-fg) 0 0 12px;
-    }
-    
-    .on-air-light {
-      padding: 8px;
-      background-color: var(--accent-bg);
-      color: var(--accent-fg);
-      border-radius: 3px;
-    }
-    
-    .on-air-not {
-      font-size: 1.25rem;
-    }
-
-    a {
-      outline: none;
-      border: none;
-      text-decoration: none;
-      cursor: url("../img/pointer.png"), auto;
-    }
-    
-    @media (max-height: 600px) {
-      :host {
-        font-size: 1.25rem;
-      }
-      
-      .on-air-light {
-        padding: 4px;
-      }
-      
-      .on-air-not {
-        font-size: 1rem;
-      }
-    }
-  </style>
-
-  <span class="on-air-not"></span>
-  <a class="no-style on-air-link" href="https://www.wmpg.org/show/sun2300/" target="_blank">
-    <span class="on-air-light">On Air</span>
-  </a>
-`;
 
 class OnAirLight extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+  }
 
-    this.shadowRoot.appendChild(onAirLightTemplate.content.cloneNode(true));
+  connectedCallback() {
+    this.render();
 
-    this.notText = this.shadowRoot.querySelector('.on-air-not');
-    this.light = this.shadowRoot.querySelector('.on-air-light');
-    this.link = this.shadowRoot.querySelector('.on-air-link');
+    this.notText = this.querySelector('#on-air-not');
+    this.light = this.querySelector('#on-air-light');
+    this.link = this.querySelector('#on-air-link');
+    this.tooltip = this.querySelector("#on-air-tooltip");
 
     this.playingMessage = `<span class='emoji'>s</span> Listen Live! <span class='emoji'>s</span>`;
     this.offAirMessage = `<span class='emoji'>t</span> Download My Archives! <span class='emoji'>t</span>`
 
     this.playingMessage += `<div class="arrow" data-popper-arrow></div>`
     this.offAirMessage += `<div class="arrow" data-popper-arrow></div>`
-  }
-
-  connectedCallback() {
-    this.tooltip = document.getElementById(this.dataset.tooltipId);
-    createTooltip(this.light, this.tooltip);
 
     this.checkTime();
+  }
+
+  render() {
+    this.innerHTML = `
+      <span id="on-air-not"></span>
+      <a id="no-style on-air-link" href="https://www.wmpg.org/show/sun2300/" target="_blank">
+        <span id="on-air-light">On Air</span>
+      </a>
+      <my-tooltip data-for="#on-air-light" data-position="top" id="on-air-tooltip"></my-tooltip>
+    `;
   }
 
   disconnectedCallback() {
@@ -159,6 +73,7 @@ class OnAirLight extends HTMLElement {
       clearTimeout(this.timeCheckTimer);
     }
   }
+
   checkTime() {
     const today = new Date();
     const isSunday = today.getDay() === 0;
@@ -187,97 +102,10 @@ class OnAirLight extends HTMLElement {
 customElements.define('on-air-light', OnAirLight);
 
 const mediaPlayerTemplate = document.createElement('template');
-mediaPlayerTemplate.innerHTML = `
-  <style>
-    :host {
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      height: 100%;
-    }
-    
-    .transport {
-      height: fit-content;
-      background-color: var(--accent-bg);
-      padding: 6px;
-      border-radius: 3px;
-      font-size: 1rem;
-      display: flex;
-      gap: 10px;
-    }
-    
-    .transport img {
-      width: 100%;
-      height: 24px;
-      transform: translateY(2px);
-      cursor: url('../img/pointer.png'), auto;
-    }
-    
-    .play-button .play-state {
-      display: none;
-      margin-bottom: 4px;
-    }
-    
-    .play-button.paused .play-state {
-      display: block;
-    }
-    
-    .play-button.paused .pause-state {
-      display: none;
-    }
-    
-    .play-button[disabled] {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .random-button .on-state { 
-      display: none;
-    }
-    
-    .random-button.on .on-state {
-      display: block;
-    }
-    
-    .random-button.on .off-state {
-      display: none;
-    }
-    
-    .waveform {
-      flex-grow: 1;
-      max-height: 60px;
-      cursor: url("../img/pointer.png"), auto;
-    }
-    
-    .waveform ::part(cursor) {
-      display: none;
-    }
-  </style>
-
-  <div class="transport">
-    <span class="play-button paused" role="button" tabindex="0" aria-label="Play/Pause">
-      <img src="/img/transport/play.png" class="play-state" alt="Play"/>
-      <img src="/img/transport/pause.png" class="pause-state" alt="Pause"/>
-    </span>
-    <span class="random-button" role="button" tabindex="0" aria-label="Random">
-      <img src="/img/transport/random-on.png" class="on-state" alt="Random on"/>
-      <img src="/img/transport/random-off.png" class="off-state" alt="Random off"/>
-    </span>
-  </div>
-  <div class="waveform"></div>
-`;
 
 class MediaPlayer extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.appendChild(mediaPlayerTemplate.content.cloneNode(true));
-
-    this.playButton = this.shadowRoot.querySelector('.play-button');
-    this.randomButton = this.shadowRoot.querySelector('.random-button');
-    this.waveform = this.shadowRoot.querySelector('.waveform');
 
     this.isPlaying = false;
     this.isRandom = false;
@@ -293,22 +121,39 @@ class MediaPlayer extends HTMLElement {
   }
 
   connectedCallback() {
+    this.render();
+
+    this.tooltip = this.querySelector("#waveform-tooltip");
+    this.playButton = this.querySelector('.play-button');
+    this.randomButton = this.querySelector('.random-button');
+    this.waveform = this.querySelector('.waveform');
+
     this.playButton.addEventListener('click', () => this.togglePlay());
     this.randomButton.addEventListener('click', () => this.toggleRandom());
 
-    // Initialize WaveSurfer
     this.initializeWaveSurfer();
-
-    // Setup beforeunload handler
     window.addEventListener('beforeunload', this.handleBeforeUnload.bind(this));
+  }
 
-    this.tooltip = document.getElementById(this.dataset.tooltipId);
+  render() {
+    this.innerHTML = `
+      <div class="transport">
+        <span class="play-button paused" role="button" tabindex="0" aria-label="Play/Pause">
+          <img src="/img/transport/play.png" class="play-state" alt="Play"/>
+          <img src="/img/transport/pause.png" class="pause-state" alt="Pause"/>
+        </span>
+        <span class="random-button" role="button" tabindex="0" aria-label="Random">
+          <img src="/img/transport/random-on.png" class="on-state" alt="Random on"/>
+          <img src="/img/transport/random-off.png" class="off-state" alt="Random off"/>
+        </span>
+      </div>
+      <div class="waveform"></div>
 
-    createTooltip(this.waveform, this.tooltip, "top");
+      <my-tooltip data-for=".waveform" data-position="top" id="waveform-tooltip"></my-tooltip>
+    `;
   }
 
   disconnectedCallback() {
-    // Cleanup
     if (this.wavesurfer) {
       this.wavesurfer.destroy();
     }
@@ -334,7 +179,6 @@ class MediaPlayer extends HTMLElement {
       height: 'auto'
     });
 
-    // WaveSurfer event listeners
     this.wavesurfer.on('load', () => {
       this.playButton.setAttribute('disabled', 'true');
     });
@@ -413,37 +257,6 @@ class MediaPlayer extends HTMLElement {
       e.returnValue = 'Audio is still playing. Are you sure you want to leave?';
       return e.returnValue;
     }
-  }
-
-  // Public API methods
-
-  // Set songs list
-  setSongs(songs) {
-    this.songs = songs;
-    this.currentSong = this.randomSong();
-    if (this.wavesurfer) {
-      this.wavesurfer.load(this.currentSong.url);
-    }
-  }
-
-  // Get current song info
-  getCurrentSong() {
-    return this.currentSong;
-  }
-
-  // Get waveform element for tooltip attachment
-  getWaveformElement() {
-    return this.waveform;
-  }
-
-  // Get play button for tooltip attachment
-  getPlayButton() {
-    return this.playButton;
-  }
-
-  // Get random button for tooltip attachment
-  getRandomButton() {
-    return this.randomButton;
   }
 }
 
