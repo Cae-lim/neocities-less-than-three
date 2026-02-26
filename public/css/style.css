@@ -115,11 +115,22 @@ button:active {
 }
 
 ul {
-  list-style-position: inside;
+  list-style: none;
 }
 
-ul li > * {
-  display: inline
+li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+li:nth-child(odd):before {
+  font-family: EmojiFont;
+  content: "C ";
+}
+
+li:nth-child(even):before {
+  font-family: EmojiFont;
+  content: "G ";
 }
 
 .shadow {

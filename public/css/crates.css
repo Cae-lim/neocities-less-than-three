@@ -14,19 +14,9 @@
   border: 5px dotted var(--accent-bg)
 }
 
-.crate li {
-  padding-left: 1em;
-  text-indent: -1em;
-}
-
 .crate li:nth-child(odd):before {
   font-family: EmojiFont;
-  content: "s";
-}
-
-.crate li:nth-child(even):before {
-  font-family: EmojiFont;
-  content: "G";
+  content: "s ";
 }
 
 .crate-carousel {
